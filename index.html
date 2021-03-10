@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="asset/style.css" rel="stylesheet">
+    <title>National Mathematics Competition</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row top_row">
+            <div class="col-lg-2 col-md-12">
+                <a href="https://www.la-vogueschools.org/"><img src="asset/lavogue-logo.png" class="img-fluid logo" alt="Lavogue Schools"></a>
+                <a href="http://www.nmcabuja.org/" target="_blank" class="small_nmc"><img src="asset/nmc_logo.png" class="img-fluid logo" alt="National Mathematics Competition"></a>
+
+            </div>
+            <div class="col-lg-8 col-md-12 text-center text-uppercase py-4">
+                <h1>
+                    <div class="yellow">La-vogue</div>
+                    <div class="white_small">British International Schools</div>
+                    <hr>
+                    <div class="light_blue">National Mathematical center, Abuja</div>
+                </h1>
+                <h2>
+                    <div class="text-shadow">National Mathematics Competition</div>
+                </h2>
+            </div>
+            <div class="col-lg-2 col-md-6 large_nmc">
+                <a href="http://www.nmcabuja.org/" target="_blank"><img src="asset/nmc_logo.png" class="img-fluid" alt="National Mathematics Competition"></a>
+            </div>
+        </div>
+        <div class="row bottom_row">
+            <form id="paymentForm" method="POST" action="logic/index.php" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <img id="blah" src="#" alt="Passport" class="img-fluid passport">
+                        <div class="custom-file mt-2">
+                            <input type="file" class="form-control" id="passport" name="passport" onchange="readURL(this);" accept="image/jpg,image/png,image/gif,image/jpeg" required>
+                            <label class="custom-file-label" for="passport">Upload passport</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" id="surname" name="surname" placeholder="Surname" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="other_names">Other Names</label>
+                        <input type="text" class="form-control" id="other_names" name="other_name" placeholder="Other names" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="contact_number">Contact number</label>
+                        <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Contact number" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email Address</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" name="date_of_birth" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Gender</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="school">Name of School</label>
+                        <input type="text" class="form-control" id="school" name="school" placeholder="Name of school" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="class">Class</label>
+                        <input type="text" class="form-control" id="class" name="class" placeholder="Class" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="residing_state">State</label>
+                        <input type="text" class="form-control" id="residing_state" name="residing_state" placeholder="State" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Amount</label>
+                        <input type="text" class="form-control" readonly id="amount" name="amount" value="1500" required>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="terms_conditions" required>
+                            <label class="form-check-label" for="terms_conditions">
+                                I have read and accepted the <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#termsModal">terms and conditions</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="submit" class="btn btn-primary" value="Submit" name="submit">
+                        <div class="float-right" style="width: 225px;">
+                            <img src="asset/paystack.png" class="img-fluid" alt="Secured by paystack">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Modal -->
+            <div class="modal fade " id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <ol>
+                                <li>
+                                    Registration fee is N1500 (One Thousand and Five Hundred Naira only), and it is non-refundable.
+                                </li>
+                                <li>
+                                    Only Children in the following classes are eligible for the competition.
+                                    <ul>
+                                        <li>Primary Mathematics Competition: Year 4 – Year 6 (Primary 4 – Primary 6)</li>
+                                        <li>Junior Mathematics Competition: Year 7 – Year 9 (JS 1 – JS 3)</li>
+                                        <li>Senior Mathematics Competition: Year 10 – Year 12 (SS 1 – SS 3)3</li>
+                                    </ul>
+                                </li>
+                                <li>If any student registered is found to be non-eligible based on the above criteria, all registered students from represented school will be penalized.</li>
+                                <li>We are responsible for the organizing and coordination of the competition and will do so in a professional, equitable and transparent manner devoid of external interference and influences.</li>
+                                <li>The objective of the competition is not to directly market or present any school in a bad light by publicly showcasing results of the competition. Hence, our results do not necessarily reflect the standard or rating of
+                                    any school.</li>
+                                <li> The competition is purely a platform and avenue for academic exposure and advancement; it is therefore not intended to create unhealthy rivalry among schools or participants.</li>
+                                <li> The LVBIS National Mathematics Championship is not aimed at identifying geniuses; hence it is open for all who desire genuine improvement and academic excellence. We are therefore poised to improve every participant by
+                                    a relative measure.</li>
+                                <li>As a responsible organization, we shall do our best to liaise with relevant security agents to ensure safety across our examination centres. However, teachers and parents should be vigilant and personally responsible for
+                                    the safety of the children under their custody. </li>
+                                <li>Unauthorized substitution of candidates at any stage of the competition is totally prohibited and amounts to instant disqualification.</li>
+                                <li>Presentation and award of prizes is determined by performance at the national stage of the competition. In other words, the first and second stages examination written at the state and zonal level respectively are merely
+                                    regarded as qualifying examinations. </li>
+                                <li>In the event of a tie at the National stage of the competition, we may refer to the performance at the preliminary stages as a measure to break the tie. A Supplementary exam will be conducted for the affected candidates,
+                                    ONLY if a tie still exists after reference to the preliminary stages.</li>
+                                <li>The organizers reserve the right to disqualify any candidate or school at any stage of the competition found to be involved in acts capable of destroying the integrity and objectives of the competition.</li>
+                                <li>The organizers reserve the right to investigate and demand for the academic records of any successful participant from schools and parent without prior notice before award of prizes.</li>
+                            </ol>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="cover-spin"></div>
+    <!-- <button onclick="">Save</button> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="asset/script.js"></script>
+</body>
+
+</html>
